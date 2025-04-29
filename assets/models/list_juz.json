@@ -1,0 +1,23 @@
+{
+    "code": 200,
+    "status": "OK.",
+    "message": "Success fetching all juz.",
+    "data": [
+        {
+            "juz": 1,
+            "juzStartSurahNumber": 1,
+            "juzEndSurahNumber": 2,
+            "juzStartInfo": "Al-Fatihah - 1",
+            "juzEndInfo": "Al-Baqarah - 141",
+            "totalVerses": 148
+        },
+        {
+            "juz": 2,
+            "juzStartSurahNumber": 2,
+            "juzEndSurahNumber": 2,
+            "juzStartInfo": "Al-Baqarah - 142",
+            "juzEndInfo": "Al-Baqarah - 252",
+            "totalVerses": 111
+        }
+    ]
+}

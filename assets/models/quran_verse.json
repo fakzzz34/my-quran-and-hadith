@@ -1,0 +1,16 @@
+{
+    "verses": [
+        {
+            "id": 1,
+            "verse_key": "1:1",
+            "text_uthmani": "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ"
+        }
+    ],
+    "meta": {
+        "filters": {
+            "verse_key": "1:2",
+            "chapter_number": "1",
+            "page_number": "3"
+        }
+    }
+}
