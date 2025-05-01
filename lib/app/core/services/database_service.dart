@@ -159,12 +159,14 @@ class DatabaseService {
   }
 
   Future<AyahModel?> getLastRead() async {
-    final db = await database;
-    final result = await db.query(_tableLastRead);
-    if (result.isNotEmpty) return AyahModel.fromJson(result.first);
-    logSuccess('lastRead: $result');
-
-    return null;
+    try {
+      final db = await database;
+      final result = await db.query(_tableLastRead);
+      return result.isNotEmpty ? AyahModel.fromJson(result.first) : null;
+    } catch (e) {
+      logError('Error : $e');
+      return null;
+    }
   }
 
   Future<void> insertRead(ReadModel read) async {

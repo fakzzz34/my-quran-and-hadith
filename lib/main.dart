@@ -6,6 +6,8 @@ import 'app/core/provider/api_provider.dart';
 import 'app/routes/app_pages.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
     GetMaterialApp(
       title: "Application",
