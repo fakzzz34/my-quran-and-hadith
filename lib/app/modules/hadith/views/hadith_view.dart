@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../core/provider/api_provider.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../routes/app_pages.dart';
+import '../../../widgets/texts.dart';
 import '../controllers/hadith_controller.dart';
 import '../repository/hadith_repository.dart';
 
@@ -22,8 +23,10 @@ class HadithView extends GetView<HadithController> {
       builder: (context) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Hadith'),
-            centerTitle: true,
+            title: Texts.heading(
+              'Hadith',
+              color: primaryMain,
+            ),
           ),
           body: controller.isLoading
               ? const Center(

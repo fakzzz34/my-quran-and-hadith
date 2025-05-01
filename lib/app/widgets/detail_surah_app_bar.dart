@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../core/theme/app_theme.dart';
 import '../data/models/detail_surah_model.dart' as ds;
+import 'texts.dart';
 
 class DetailSurahAppBar extends StatelessWidget {
   final ds.DetailSurah? detailSurah;
@@ -61,29 +61,20 @@ class DetailSurahAppBar extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          Text(
+                          Texts.heading(
                             '${detailSurah?.data?.name?.short}',
-                            style: GoogleFonts.amiri(
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold,
-                              color: neutralSurface,
-                            ),
+                            color: neutralSurface,
+                            fontStyle: FontStyles.amiri,
                           ),
-                          Text(
+                          Texts.m(
                             '${detailSurah?.data?.name?.transliteration?.en}',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: neutralSurface,
-                            ),
+                            fontWeight: FontWeight.w500,
+                            color: neutralSurface,
                           ),
-                          Text(
+                          Texts.s(
                             '${detailSurah?.data?.name?.translation?.id}',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: neutralSurface,
-                            ),
+                            fontWeight: FontWeight.w500,
+                            color: neutralSurface,
                           ),
                         ],
                       ),
@@ -104,21 +95,15 @@ class DetailSurahAppBar extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      Texts.m(
                         '${detailSurah?.data?.revelation?.id}',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: neutralSurface,
-                        ),
+                        fontWeight: FontWeight.w500,
+                        color: neutralSurface,
                       ),
-                      Text(
+                      Texts.m(
                         'Juz ${detailSurah?.data?.verses?.first.meta?.juz} • ${detailSurah?.data?.numberOfVerses} Ayat',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: neutralSurface,
-                        ),
+                        fontWeight: FontWeight.w500,
+                        color: neutralSurface,
                       ),
                     ],
                   ),

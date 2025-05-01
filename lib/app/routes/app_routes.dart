@@ -14,6 +14,7 @@ abstract class Routes {
   static const PLAYLIST = _Paths.PLAYLIST;
   static const HADITH = _Paths.HADITH;
   static const DETAIL_HADITH = _Paths.DETAIL_HADITH;
+  static const BOOKMARK = _Paths.BOOKMARK;
 }
 
 abstract class _Paths {
@@ -29,4 +30,5 @@ abstract class _Paths {
   static const PLAYLIST = '/playlist';
   static const HADITH = '/hadith';
   static const DETAIL_HADITH = '/detail-hadith';
+  static const BOOKMARK = '/bookmark';
 }

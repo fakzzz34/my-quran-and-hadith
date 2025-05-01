@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import '../core/theme/app_theme.dart';
@@ -10,6 +9,7 @@ import '../data/models/ayah_model.dart';
 import '../routes/app_pages.dart';
 import '../utils/read_type.dart';
 import 'button_with_arrow.dart';
+import 'texts.dart';
 
 class LastReadContainer extends StatelessWidget {
   final AyahModel? ayahModel;
@@ -58,24 +58,18 @@ class LastReadContainer extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text(
+                          Texts.xs(
                             'Last Read',
-                            style: GoogleFonts.inter(
-                              fontSize: 12,
-                              color: neutralSurface,
-                              fontWeight: FontWeight.normal,
-                            ),
+                            color: neutralSurface,
+                            fontWeight: FontWeight.normal,
                           ),
                           const SizedBox(width: 8),
                           if (ayahModel?.updatedAt != null)
-                            Text(
+                            Texts.xs(
                               DateFormat('dd MMM yy').format(
                                   DateTime.parse('${ayahModel?.updatedAt}')),
-                              style: GoogleFonts.inter(
-                                fontSize: 12,
-                                color: neutralSurface,
-                                fontWeight: FontWeight.normal,
-                              ),
+                              color: neutralSurface,
+                              fontWeight: FontWeight.normal,
                             ),
                         ],
                       ),
@@ -85,42 +79,32 @@ class LastReadContainer extends StatelessWidget {
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(right: 8),
-                                  child: Text(
+                                  child: Texts.xl(
                                     '${ayahModel?.arabic}',
-                                    style: GoogleFonts.amiri(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                      color: neutralSurface,
-                                    ),
+                                    fontWeight: FontWeight.bold,
+                                    color: neutralSurface,
+                                    fontStyle: FontStyles.amiri,
                                   ),
                                 ),
                                 const SizedBox(width: 8),
-                                Text(
+                                Texts.xs(
                                   '${ayahModel?.transliteration}',
-                                  style: GoogleFonts.inter(
-                                    fontSize: 12,
-                                    color: neutralSurface,
-                                    fontWeight: FontWeight.w300,
-                                  ),
+                                  color: neutralSurface,
+                                  fontWeight: FontWeight.w300,
                                 ),
                               ],
                             )
-                          : Text(
+                          : Texts.xl(
                               'Juz ${ayahModel?.juzNumber}',
-                              style: GoogleFonts.amiri(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: neutralSurface,
-                              ),
+                              fontWeight: FontWeight.bold,
+                              color: neutralSurface,
+                              fontStyle: FontStyles.amiri,
                             ),
                       const SizedBox(height: 3),
-                      Text(
+                      Texts.xs(
                         'Ayah no. ${ayahModel?.ayahNumberInSurah}',
-                        style: GoogleFonts.inter(
-                          fontSize: 12,
-                          color: neutralSurface,
-                          fontWeight: FontWeight.w300,
-                        ),
+                        color: neutralSurface,
+                        fontWeight: FontWeight.w300,
                       ),
                       const SizedBox(height: 14),
                       ButtonWithArrow(

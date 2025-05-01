@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../core/provider/api_provider.dart';
 import '../../../core/theme/app_theme.dart';
+import '../../../widgets/texts.dart';
 import '../controllers/detail_juz_controller.dart';
 import '../repository/detail_juz.dart';
 
@@ -93,21 +93,15 @@ class DetailJuzView extends GetView<DetailJuzController> {
                                           ),
                                           Column(
                                             children: [
-                                              Text(
+                                              Texts.heading(
                                                 'Juz ${controller.detailJuz?.data?.juz}',
-                                                style: GoogleFonts.amiri(
-                                                  fontSize: 32,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: neutralSurface,
-                                                ),
+                                                color: neutralSurface,
+                                                fontStyle: FontStyles.amiri,
                                               ),
-                                              Text(
+                                              Texts.s(
                                                 '${controller.detailJuz?.data?.totalVerses} Ayat',
-                                                style: GoogleFonts.montserrat(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: neutralSurface,
-                                                ),
+                                                fontWeight: FontWeight.w500,
+                                                color: neutralSurface,
                                               ),
                                             ],
                                           ),
@@ -130,13 +124,10 @@ class DetailJuzView extends GetView<DetailJuzController> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text(
+                                          Texts.m(
                                             '${controller.detailJuz?.data?.juzStartInfo}',
-                                            style: GoogleFonts.montserrat(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                              color: neutralSurface,
-                                            ),
+                                            fontWeight: FontWeight.w500,
+                                            color: neutralSurface,
                                           ),
                                           Expanded(
                                             child: Container(
@@ -153,13 +144,10 @@ class DetailJuzView extends GetView<DetailJuzController> {
                                               ),
                                             ),
                                           ),
-                                          Text(
+                                          Texts.m(
                                             '${controller.detailJuz?.data?.juzEndInfo}',
-                                            style: GoogleFonts.montserrat(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                              color: neutralSurface,
-                                            ),
+                                            fontWeight: FontWeight.w500,
+                                            color: neutralSurface,
                                           ),
                                         ],
                                       ),
@@ -217,38 +205,28 @@ class DetailJuzView extends GetView<DetailJuzController> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.stretch,
                                             children: [
-                                              Text(
+                                              Texts.xl(
                                                 '${data.text?.arab}',
-                                                style: GoogleFonts.amiri(
-                                                  fontSize: 24,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: primaryMain,
-                                                  height: 2,
-                                                ),
-                                                textDirection:
-                                                    TextDirection.rtl,
+                                                fontWeight: FontWeight.bold,
+                                                color: primaryMain,
+                                                height: 2,
+                                                fontStyle: FontStyles.amiri,
                                               ),
                                               Padding(
                                                 padding: const EdgeInsets.only(
                                                     top: 12),
-                                                child: Text(
+                                                child: Texts.s(
                                                   '${data.text?.transliteration?.en}',
-                                                  style: GoogleFonts.montserrat(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: neutralSecondary,
-                                                  ),
+                                                  fontWeight: FontWeight.w500,
+                                                  color: neutralSecondary,
                                                 ),
                                               ),
                                               Padding(
                                                 padding: const EdgeInsets.only(
                                                     top: 8),
-                                                child: Text(
+                                                child: Texts.m(
                                                   '${data.translation?.id}',
-                                                  style: GoogleFonts.montserrat(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                                  fontWeight: FontWeight.w500,
                                                 ),
                                               ),
                                               Padding(
@@ -272,36 +250,35 @@ class DetailJuzView extends GetView<DetailJuzController> {
                                                             BorderRadius
                                                                 .circular(4),
                                                       ),
-                                                      child: Text(
+                                                      child: Texts.xs(
                                                         '${controller.detailJuz?.data?.juz} : ${data.number?.inSurah}',
-                                                        style: GoogleFonts
-                                                            .montserrat(
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          color: const Color(
-                                                              0XFF858585),
-                                                        ),
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: const Color(
+                                                            0XFF858585),
                                                       ),
                                                     ),
                                                     const Spacer(),
+                                                    // IconButton(
+                                                    //   padding: EdgeInsets.zero,
+                                                    //   visualDensity:
+                                                    //       VisualDensity.compact,
+                                                    //   onPressed: () {},
+                                                    //   icon: const Icon(
+                                                    //     Icons.check,
+                                                    //   ),
+                                                    // ),
+                                                    // const SizedBox(width: 8),
                                                     IconButton(
                                                       padding: EdgeInsets.zero,
                                                       visualDensity:
                                                           VisualDensity.compact,
                                                       onPressed: () {},
                                                       icon: const Icon(
-                                                        Icons.check,
+                                                        Icons
+                                                            .bookmark_border_rounded,
+                                                        color: neutralSecondary,
                                                       ),
-                                                    ),
-                                                    const SizedBox(width: 8),
-                                                    IconButton(
-                                                      padding: EdgeInsets.zero,
-                                                      visualDensity:
-                                                          VisualDensity.compact,
-                                                      onPressed: () {},
-                                                      icon: const Icon(Icons
-                                                          .bookmark_border_rounded),
                                                     ),
                                                   ],
                                                 ),

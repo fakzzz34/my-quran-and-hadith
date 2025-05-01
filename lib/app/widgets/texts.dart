@@ -9,6 +9,9 @@ class Texts {
     FontStyles fontStyle = FontStyles.montserrat,
     Color color = neutralMain,
     TextAlign? textAlign,
+    double? height,
+    TextOverflow textOverflow = TextOverflow.ellipsis,
+    int? maxLines,
   }) {
     return Text(
       text,
@@ -17,21 +20,26 @@ class Texts {
               fontSize: 30,
               fontWeight: FontWeight.bold,
               color: color,
+              height: height,
             )
           : fontStyle == FontStyles.poppins
               ? GoogleFonts.poppins(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: color,
+                  height: height,
                 )
               : GoogleFonts.amiri(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: color,
+                  height: height,
                 ),
       textDirection:
           fontStyle == FontStyles.amiri ? TextDirection.rtl : TextDirection.ltr,
       textAlign: textAlign,
+      overflow: textOverflow,
+      maxLines: maxLines,
     );
   }
 
@@ -41,6 +49,9 @@ class Texts {
     FontStyles fontStyle = FontStyles.montserrat,
     Color color = neutralMain,
     TextAlign? textAlign,
+    double? height,
+    TextOverflow textOverflow = TextOverflow.ellipsis,
+    int? maxLines,
   }) {
     return Text(
       text,
@@ -49,21 +60,26 @@ class Texts {
               fontSize: 24,
               fontWeight: fontWeight,
               color: color,
+              height: height,
             )
           : fontStyle == FontStyles.poppins
               ? GoogleFonts.poppins(
                   fontSize: 24,
                   fontWeight: fontWeight,
                   color: color,
+                  height: height,
                 )
               : GoogleFonts.amiri(
                   fontSize: 24,
                   fontWeight: fontWeight,
                   color: color,
+                  height: height,
                 ),
       textDirection:
           fontStyle == FontStyles.amiri ? TextDirection.rtl : TextDirection.ltr,
       textAlign: textAlign,
+      overflow: textOverflow,
+      maxLines: maxLines,
     );
   }
 
@@ -73,6 +89,9 @@ class Texts {
     FontStyles fontStyle = FontStyles.montserrat,
     Color color = neutralMain,
     TextAlign? textAlign,
+    double? height,
+    TextOverflow textOverflow = TextOverflow.ellipsis,
+    int? maxLines,
   }) {
     return Text(
       text,
@@ -81,21 +100,26 @@ class Texts {
               fontSize: 20,
               fontWeight: fontWeight,
               color: color,
+              height: height,
             )
           : fontStyle == FontStyles.poppins
               ? GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: fontWeight,
                   color: color,
+                  height: height,
                 )
               : GoogleFonts.amiri(
                   fontSize: 20,
                   fontWeight: fontWeight,
                   color: color,
+                  height: height,
                 ),
       textDirection:
           fontStyle == FontStyles.amiri ? TextDirection.rtl : TextDirection.ltr,
       textAlign: textAlign,
+      overflow: textOverflow,
+      maxLines: maxLines,
     );
   }
 
@@ -105,6 +129,9 @@ class Texts {
     FontStyles fontStyle = FontStyles.montserrat,
     Color color = neutralMain,
     TextAlign? textAlign,
+    double? height,
+    TextOverflow textOverflow = TextOverflow.ellipsis,
+    int? maxLines,
   }) {
     return Text(
       text,
@@ -113,21 +140,26 @@ class Texts {
               fontSize: 16,
               fontWeight: fontWeight,
               color: color,
+              height: height,
             )
           : fontStyle == FontStyles.poppins
               ? GoogleFonts.poppins(
                   fontSize: 16,
                   fontWeight: fontWeight,
                   color: color,
+                  height: height,
                 )
               : GoogleFonts.amiri(
                   fontSize: 16,
                   fontWeight: fontWeight,
                   color: color,
+                  height: height,
                 ),
       textDirection:
           fontStyle == FontStyles.amiri ? TextDirection.rtl : TextDirection.ltr,
       textAlign: textAlign,
+      overflow: textOverflow,
+      maxLines: maxLines,
     );
   }
 
@@ -137,6 +169,9 @@ class Texts {
     FontStyles fontStyle = FontStyles.montserrat,
     Color color = neutralMain,
     TextAlign? textAlign,
+    double? height,
+    TextOverflow textOverflow = TextOverflow.ellipsis,
+    int? maxLines,
   }) {
     return Text(
       text,
@@ -145,21 +180,26 @@ class Texts {
               fontSize: 14,
               fontWeight: fontWeight,
               color: color,
+              height: height,
             )
           : fontStyle == FontStyles.poppins
               ? GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: fontWeight,
                   color: color,
+                  height: height,
                 )
               : GoogleFonts.amiri(
                   fontSize: 14,
                   fontWeight: fontWeight,
                   color: color,
+                  height: height,
                 ),
       textDirection:
           fontStyle == FontStyles.amiri ? TextDirection.rtl : TextDirection.ltr,
       textAlign: textAlign,
+      overflow: textOverflow,
+      maxLines: maxLines,
     );
   }
 
@@ -169,6 +209,9 @@ class Texts {
     FontStyles fontStyle = FontStyles.montserrat,
     Color color = neutralMain,
     TextAlign? textAlign,
+    double? height,
+    TextOverflow textOverflow = TextOverflow.ellipsis,
+    int? maxLines,
   }) {
     return Text(
       text,
@@ -177,21 +220,26 @@ class Texts {
               fontSize: 12,
               fontWeight: fontWeight,
               color: color,
+              height: height,
             )
           : fontStyle == FontStyles.poppins
               ? GoogleFonts.poppins(
                   fontSize: 12,
                   fontWeight: fontWeight,
                   color: color,
+                  height: height,
                 )
               : GoogleFonts.amiri(
                   fontSize: 12,
                   fontWeight: fontWeight,
                   color: color,
+                  height: height,
                 ),
       textDirection:
           fontStyle == FontStyles.amiri ? TextDirection.rtl : TextDirection.ltr,
       textAlign: textAlign,
+      overflow: textOverflow,
+      maxLines: maxLines,
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../core/provider/api_provider.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../widgets/last_read_container.dart';
+import '../../../widgets/texts.dart';
 import '../controllers/quran_controller.dart';
 import '../repository/quran_repository.dart';
 
@@ -23,25 +23,21 @@ class QuranView extends GetView<QuranController> {
       builder: (controller) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(
-              'Hafiz',
-              style: GoogleFonts.poppins(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: primaryMain,
-              ),
+            title: Texts.heading(
+              'Quran',
+              color: primaryMain,
             ),
             centerTitle: true,
-            leading: IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset('assets/images/ic_menu.svg'),
-            ),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset('assets/images/ic_search.svg'),
-              ),
-            ],
+            // leading: IconButton(
+            //   onPressed: () {},
+            //   icon: SvgPicture.asset('assets/images/ic_menu.svg'),
+            // ),
+            // actions: [
+            //   IconButton(
+            //     onPressed: () {},
+            //     icon: SvgPicture.asset('assets/images/ic_search.svg'),
+            //   ),
+            // ],
           ),
           body: ListView(
             padding: const EdgeInsets.all(24),

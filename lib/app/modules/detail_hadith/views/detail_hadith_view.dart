@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/provider/api_provider.dart';
 import '../../../core/theme/app_theme.dart';
+import '../../../widgets/texts.dart';
 import '../controllers/detail_hadith_controller.dart';
 import '../repository/detail_hadith_repository.dart';
 
@@ -21,8 +22,10 @@ class DetailHadithView extends GetView<DetailHadithController> {
       builder: (controller) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('DetailHadithView'),
-            centerTitle: true,
+            title: Texts.heading(
+              controller.listHadith?.data?.name ?? '',
+              color: primaryMain,
+            ),
           ),
           body: controller.isLoading
               ? const Center(
@@ -46,7 +49,7 @@ class DetailHadithView extends GetView<DetailHadithController> {
                             textDirection: TextDirection.rtl,
                           ),
                           subtitle: Text(
-                            '${{data?.id}}',
+                            '${data?.id}',
                             style: GoogleFonts.montserrat(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,

@@ -82,6 +82,14 @@ class DetailSurahView extends GetView<DetailSurahController> {
                                     itemBuilder: (context, index) {
                                       final data = controller
                                           .detailSurah?.data?.verses?[index];
+
+                                      final isCompleted = controller
+                                          .completedReadIds
+                                          .contains(data?.number?.inQuran);
+
+                                      final isBookmarked = controller
+                                          .bookmarkIds
+                                          .contains(data?.number?.inQuran);
                                       return VisibilityDetector(
                                         key: Key('ayah-$index'),
                                         onVisibilityChanged: (info) {
@@ -183,9 +191,14 @@ class DetailSurahView extends GetView<DetailSurahController> {
                                                       padding: EdgeInsets.zero,
                                                       visualDensity:
                                                           VisualDensity.compact,
-                                                      onPressed: () {},
-                                                      icon: const Icon(
+                                                      onPressed: () =>
+                                                          controller
+                                                              .togleRead(data),
+                                                      icon: Icon(
                                                         Icons.check,
+                                                        color: isCompleted
+                                                            ? primaryMain
+                                                            : neutralSecondary,
                                                       ),
                                                     ),
                                                     const SizedBox(width: 8),
@@ -193,9 +206,20 @@ class DetailSurahView extends GetView<DetailSurahController> {
                                                       padding: EdgeInsets.zero,
                                                       visualDensity:
                                                           VisualDensity.compact,
-                                                      onPressed: () {},
-                                                      icon: const Icon(Icons
-                                                          .bookmark_border_rounded),
+                                                      onPressed: () =>
+                                                          controller
+                                                              .toggleBookmark(
+                                                                  data),
+                                                      icon: Icon(
+                                                        isBookmarked
+                                                            ? Icons
+                                                                .bookmark_added_rounded
+                                                            : Icons
+                                                                .bookmark_add_outlined,
+                                                        color: isBookmarked
+                                                            ? primaryMain
+                                                            : neutralSecondary,
+                                                      ),
                                                     ),
                                                   ],
                                                 ),

@@ -5,6 +5,7 @@ import '../../../core/services/database_service.dart';
 import '../../../core/values/constants.dart';
 import '../../../data/models/ayah_model.dart';
 import '../../../data/models/list_surah_model.dart';
+import '../../../data/models/read_model.dart';
 import '../repository/quran_repository.dart';
 import '../views/juz_view.dart';
 import '../views/surah_view.dart';
@@ -23,6 +24,7 @@ class QuranController extends GetxController
   // Models
   ListSurah? listSurah;
   AyahModel? lastRead;
+  List<ReadModel> completedReads = [];
 
   // Variables
   int selectedIndex = 0;
@@ -35,12 +37,12 @@ class QuranController extends GetxController
 
   // Functions
 
-  tabOnChanged(int index) {
+  void tabOnChanged(int index) {
     selectedIndex = index;
     update();
   }
 
-  getListSurah() {
+  void getListSurah() {
     isLoading = true;
     update();
 
@@ -65,6 +67,15 @@ class QuranController extends GetxController
     update();
   }
 
+  Future<void> fetchCompletedReads() async {
+    completedReads = await databaseService.getReads();
+    update();
+  }
+
+  int getCompletedReadCountForSurah(int surahNumber) {
+    return completedReads.where((e) => e.surahNumber == surahNumber).length;
+  }
+
   @override
   void onInit() {
     super.onInit();
@@ -73,5 +84,6 @@ class QuranController extends GetxController
 
     getListSurah();
     loadLastRead();
+    fetchCompletedReads();
   }
 }

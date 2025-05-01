@@ -6,8 +6,11 @@ import 'package:get/get.dart';
 import '../../../core/services/database_service.dart';
 import '../../../core/values/constants.dart';
 import '../../../data/models/ayah_model.dart';
+import '../../../data/models/bookmarks_model.dart';
 import '../../../data/models/detail_surah_model.dart';
+import '../../../data/models/read_model.dart';
 import '../../../utils/read_type.dart';
+import '../../quran/controllers/quran_controller.dart';
 import '../repository/detail_surah_repository.dart';
 
 class DetailSurahController extends GetxController {
@@ -29,9 +32,12 @@ class DetailSurahController extends GetxController {
 
   DetailSurah? detailSurah;
 
+  List<ReadModel> completedRead = [];
+  List<BookmarkModel> bookmark = [];
+
   Timer? _debounce;
 
-  _getListSurah(int surah) {
+  void _getListSurah(int surah) {
     isLoading = true;
     update();
 
@@ -76,7 +82,7 @@ class DetailSurahController extends GetxController {
     }
   }
 
-  getLastRead(Verses? ayah) {
+  void getLastRead(Verses? ayah) {
     _debounce?.cancel();
 
     _debounce = Timer(
@@ -118,6 +124,56 @@ class DetailSurahController extends GetxController {
     }
   }
 
+  void togleRead(Verses? ayah) async {
+    final readModel = ReadModel(
+      ayahNumberInQuran: ayah?.number?.inQuran?.toInt(),
+      ayahNumberInSurah: ayah?.number?.inSurah?.toInt(),
+      surahNumber: detailSurah?.data?.number?.toInt(),
+      juzNumber: ayah?.meta?.juz?.toInt(),
+      arabic: detailSurah?.data?.name?.short,
+      transliteration: detailSurah?.data?.name?.transliteration?.id,
+      translation: detailSurah?.data?.name?.translation?.id,
+    );
+
+    await databaseService.toggleRead(readModel);
+    await _getListCompletedRead();
+    await Get.find<QuranController>().fetchCompletedReads();
+    update();
+  }
+
+  _getListCompletedRead() async {
+    completedRead = await databaseService.getReads();
+
+    logSuccess('completedRead : $completedRead');
+  }
+
+  List<int> get completedReadIds =>
+      completedRead.map((e) => e.ayahNumberInQuran!).toList();
+
+  void toggleBookmark(Verses? ayah) async {
+    final readModel = BookmarkModel(
+      ayahNumberInQuran: ayah?.number?.inQuran?.toInt(),
+      ayahNumberInSurah: ayah?.number?.inSurah?.toInt(),
+      surahNumber: detailSurah?.data?.number?.toInt(),
+      juzNumber: ayah?.meta?.juz?.toInt(),
+      arabic: detailSurah?.data?.name?.short,
+      transliteration: detailSurah?.data?.name?.transliteration?.id,
+      translation: detailSurah?.data?.name?.translation?.id,
+      tafsir: detailSurah?.data?.tafsir?.id,
+    );
+
+    await databaseService.toggleBookmark(readModel);
+    await _getListBookmark();
+    update();
+  }
+
+  _getListBookmark() async {
+    bookmark = await databaseService.getBookmarks();
+  }
+
+  List<int> get bookmarkIds =>
+      bookmark.map((e) => e.ayahNumberInQuran!).toList();
+
   @override
   void onInit() {
     super.onInit();
@@ -128,5 +184,7 @@ class DetailSurahController extends GetxController {
 
     currentSurah = int.parse(Get.parameters['surahNumber']!);
     _getListSurah(currentSurah!);
+    _getListCompletedRead();
+    _getListBookmark();
   }
 }

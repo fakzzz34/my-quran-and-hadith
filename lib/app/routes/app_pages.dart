@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/bookmark/bindings/bookmark_binding.dart';
+import '../modules/bookmark/views/bookmark_view.dart';
 import '../modules/detail_hadith/bindings/detail_hadith_binding.dart';
 import '../modules/detail_hadith/views/detail_hadith_view.dart';
 import '../modules/detail_juz/bindings/detail_juz_binding.dart';
@@ -85,6 +87,11 @@ class AppPages {
       name: _Paths.DETAIL_HADITH,
       page: () => const DetailHadithView(),
       binding: DetailHadithBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOKMARK,
+      page: () => const BookmarkView(),
+      binding: BookmarkBinding(),
     ),
   ];
 }
