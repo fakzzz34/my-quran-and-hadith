@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/theme/app_theme.dart';
 import '../../../routes/app_pages.dart';
+import '../../../widgets/button_with_arrow.dart';
+import '../../../widgets/texts.dart';
 import '../controllers/splash_controller.dart';
 
 class SplashView extends GetView<SplashController> {
@@ -37,55 +38,42 @@ class SplashView extends GetView<SplashController> {
                 width: 210,
                 child: Column(
                   children: [
-                    Text(
-                      'Hafiz',
-                      style: GoogleFonts.poppins(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        color: primarySecondary,
-                      ),
+                    // Text(
+                    //   'My Quran & Hadith',
+                    //   style: GoogleFonts.poppins(
+                    //     fontSize: 30,
+                    //     fontWeight: FontWeight.bold,
+                    //     color: primarySecondary,
+                    //   ),
+                    //   textAlign: TextAlign.center,
+                    // ),
+                    Texts.heading(
+                      'My Quran & Hadith',
+                      color: primarySecondary,
+                      textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 16),
-                    Text(
-                      'Learn Quran and Recite everyday',
-                      style: GoogleFonts.poppins(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: neutralSurface,
-                      ),
+                    // Text(
+                    //   'Read Quran and Hadith everyday',
+                    //   style: GoogleFonts.poppins(
+                    //     fontSize: 24,
+                    //     fontWeight: FontWeight.bold,
+                    //     color: neutralSurface,
+                    //   ),
+                    // ),
+                    Texts.xl(
+                      'Read Quran and Hadith everyday',
+                      fontWeight: FontWeight.bold,
+                      color: neutralSurface,
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 22),
-              CupertinoButton(
-                padding: EdgeInsets.zero,
+              ButtonWithArrow(
                 onPressed: () => Get.offNamed(Routes.HOME),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 11,
-                    vertical: 8,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: neutralContainer,
-                  ),
-                  child: IntrinsicWidth(
-                    child: Row(
-                      children: [
-                        Text(
-                          'Get Started',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 16,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        const SizedBox(width: 11),
-                        SvgPicture.asset('assets/images/button_arrow.svg'),
-                      ],
-                    ),
-                  ),
-                ),
+                text: 'Get Started',
+                buttonWithArrowSize: ButtonWithArrowSize.large,
               ),
             ],
           ),

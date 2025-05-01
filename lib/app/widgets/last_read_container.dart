@@ -9,6 +9,7 @@ import '../core/theme/app_theme.dart';
 import '../data/models/ayah_model.dart';
 import '../routes/app_pages.dart';
 import '../utils/read_type.dart';
+import 'button_with_arrow.dart';
 
 class LastReadContainer extends StatelessWidget {
   final AyahModel? ayahModel;
@@ -122,8 +123,7 @@ class LastReadContainer extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 14),
-                      CupertinoButton(
-                        padding: EdgeInsets.zero,
+                      ButtonWithArrow(
                         onPressed: () {
                           if (ayahModel?.readType == ReadType.surah.name) {
                             Get.toNamed(
@@ -147,30 +147,7 @@ class LastReadContainer extends StatelessWidget {
                             );
                           }
                         },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 11,
-                            vertical: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: neutralContainer,
-                          ),
-                          child: Row(
-                            children: [
-                              Text(
-                                'Continue',
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                              const SizedBox(width: 11),
-                              SvgPicture.asset(
-                                  'assets/images/button_arrow.svg'),
-                            ],
-                          ),
-                        ),
+                        text: 'Continue',
                       ),
                     ],
                   ),
